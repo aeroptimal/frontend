@@ -39,4 +39,4 @@ jobs:
           # rm: true
           # port: 22 //puedes especificar el puerto si es necesario para tu servidor
           source: "build/"
-          target: "/"
+          target: "/react"
