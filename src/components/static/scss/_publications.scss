@@ -1,0 +1,133 @@
+.c-publications {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 80px;
+    &__wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    &__title {
+        font-size: 50px;
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 700;
+        line-height: 52px;
+        width: 100%;
+        margin-bottom: 50px;
+    }
+    &__content {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    &__main {
+        width: 60%;
+    }
+    &__sidebar {
+        width: 30%;
+    }
+    &__articles {
+        list-style: none;
+        padding: 0;
+    }
+    &__article {
+        box-shadow: 0px 3px 4px 3px rgba(81, 148, 175, 0.15);
+        border-radius: 4px;
+        width: 100%;
+        padding: 24px;
+        margin-bottom: 20px;
+        &--news {
+            border-bottom: 1px solid #C4C4C4;
+            margin-bottom: 20px;
+        }
+    }
+    &__date {
+        font-family: "Lato", sans-serif;
+        font-size: 15px;
+        line-height: 16px;
+        font-weight: 400;
+        color: #989898;
+        margin-bottom: 6px;
+    }
+    &__desc {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+    &__text {
+        font-weight: 700;
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 18px;
+        line-height: 19px;
+        margin-bottom: 0;
+        &--news {
+            font-family: "Lato", sans-serif;
+            font-size: 16px;
+            line-height: 16.7px;
+            font-weight: 300;
+            margin-bottom: 13px;
+        }
+    }
+    &__subtitle {
+        font-family: 'Space Grotesk', sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 40px;
+        line-height: 42px;
+    }
+    &__news {
+        padding: 0;
+        list-style: none;
+        max-height: 650px;
+        overflow: hidden;
+        overflow-y: scroll;
+    }
+    &__pagination {
+        justify-content: center;
+        margin-top: 40px;
+        & .page-link {
+            border: none;
+            font-size: 18px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            line-height: 19px;
+            color: black;
+            &:hover {
+                background-color: #5194AF;
+                border-radius: 50%;
+                color: white;
+            }
+            &:focus {
+                background-color: #5194AF;
+                border-radius: 50%;
+                color: white;
+            }
+        }
+        & .page-item {
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+        }
+    }
+    &__pag-arrow {
+        font-size: 18px;
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 700;
+        line-height: 19px;
+        color: black;
+        text-decoration: none;
+    }
+    @media screen and (max-width: 500px) {
+        &__content {
+            flex-wrap: wrap;
+        }
+        &__main {
+            width: 100%;
+        }
+        &__sidebar {
+            width: 100%;
+        }
+    }
+}

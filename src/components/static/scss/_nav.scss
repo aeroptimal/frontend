@@ -1,0 +1,59 @@
+.c-nav {
+    width: 100%;
+    max-width: 1200px;
+    padding: 24px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        list-style: none;
+        padding: 0;
+    }
+    &__item {
+        font-size: 20px;
+        color: white;
+        font-weight: 700;
+        line-height: 25px;
+        font-family: 'Space Grotesk', sans-serif;
+        padding: 12px 30px;
+        &:last-child {
+            background-color: black;
+            border-radius: 4px;
+            border: 2px solid black;
+            transition: ease-in-out 0.3s;
+            &:hover {
+                background-color: white;
+                a {
+                    color: black;
+                }
+            }
+        }
+        a {
+            color: white;
+            text-decoration: none;
+        }
+    }
+    @media screen and (max-width: 1024px) {
+        max-width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        &__menu {
+            flex-wrap: wrap
+        }
+    }
+    @media screen and (max-width: 500px) {
+        max-width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        &__menu {
+            flex-wrap: wrap
+        }
+        &__item {
+            width: 100%;
+            text-align: center;
+        }
+    }
+}

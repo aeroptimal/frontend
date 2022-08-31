@@ -1,0 +1,97 @@
+.c-footer {
+    padding: 14px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #AF1731;
+    &__logo {
+        display: block;
+        width: auto;
+        height: 100%;
+    }
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+    &__social {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    &__links {
+        display: flex;
+        list-style: none;
+        width: 130px;
+        justify-content: space-between;
+        padding: 0;
+    }
+    &__link {
+        width: 33px;
+        height: 33px;
+        a {
+            width: 33px;
+            height: 33px;
+        }
+    }
+    &__icon {
+        display: flex;
+        align-items: center;
+        width: 33px;
+        height: 33px;
+        &--facebook {
+            &::after {
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                width: 33px;
+                height: 33px;
+                background-image: url(../img/facebook.png);
+                content: " ";
+            }
+        }
+        &--instagram {
+            &::after {
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                width: 33px;
+                height: 33px;
+                background-image: url(../img/instagram.png);
+                content: " ";
+            }
+        }
+        &--twitter {
+            &::after {
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                width: 33px;
+                height: 33px;
+                background-image: url(../img/twitter.png);
+                content: " ";
+            }
+        }
+    }
+    &__copy {
+        font-family: "Lato", sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 21px;
+        color: white;
+    }
+    @media screen and (max-width: 500px) {
+        &__content {
+            flex-wrap: wrap;
+            height: 100%;
+        }
+        &__logo {
+            margin: 0 auto;
+        }
+        &__social {
+            width: 100%;
+            margin-top: 20px;
+        }
+    }
+}
