@@ -1,9 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Space+Grotesk:wght@700&display=swap");
-body {
-  padding: 0;
-  margin: 0;
-  width: 100%;
-}
 
 ul {
   list-style-type: square;
@@ -788,4 +783,66 @@ ul {
   opacity: .4;
   pointer-events: none;
   cursor: not-allowed;
+}
+
+.c-mesh_container{
+  width: 80%;
+}
+
+.c-mesh_title{
+  display: flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media screen and (max-width: 500px) {
+  .c-mesh_container{
+    width: 100%;
+  }
+}
+
+.c-mesh__mask {
+  background-image: url(../img/Reflex.png);;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 50%;
+  -webkit-clip-path: polygon(0 0, 90% 0, 70% 98%, 0 100%);
+  clip-path: polygon(0 0, 90% 0, 70% 98%, 0 100%);
+}
+
+.c-mesh__content {
+  width: 50%;
+  max-width: 560px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.c-input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-image: url(../img/ctabg.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 80px 0;
 }

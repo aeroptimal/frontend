@@ -1,25 +1,13 @@
 import './static/css/index.css'
-import logo from './static/img/logo.png'
 import arrow from './static/img/arrow-article.png'
-
-import { Link } from "react-scroll";
+import Header from '../components/header.jsx'
+import Footer from '../components/footer.jsx'
 
 function Index(){
+
     return(
         <div>
-            <header className="c-header">
-                <nav className="c-nav">
-                    <a href="/"><img className="c-logo" src={logo} alt="Logo"/></a>
-                    <ul className="c-nav__menu">
-                        <li className="c-nav__item"><Link>About Us</Link> </li>
-                        <li className="c-nav__item"><a href="/#services">Modules</a> </li>
-                        <li className="c-nav__item"><a href="/contact">Contact Us</a> </li>
-                        <li className="c-nav__item"><a href="/login#log">Log In</a> </li>
-                        <li className="c-nav__item"><a href="/login#reg">Sign-Up</a> </li>
-                    </ul>
-                </nav>
-            </header>
-
+            <Header/>
             <section>
                 <div className="c-hero">
                     <div className="c-hero__container">
@@ -39,7 +27,7 @@ function Index(){
                 </div>
             </section>
 
-            <section id="we">
+            <section id="about">
                 <div className="c-split">
                     <div className="c-container">
                         <div className="c-split__content">
@@ -62,15 +50,15 @@ function Index(){
                 </div>
             </section>
 
-            <section id="services">
+            <section id="modules">
                 <div className="c-cta">
                     <h3 className="c-cta__title">Modules</h3>
                     <div className="c-container">
                         <div className="c-cta__buttons">
-                            <a href="./airfoil" className="c-cta__button">Airfoil Optimization</a>
-                            <a href="./thrust" className="c-cta__button">Propeller Thrust & Take-Off Analysis</a>
-                            <a href="./battery" className="c-cta__button">Battery Calculator</a>
-                            <a href="./mesh" className="c-cta__button">Airfoil Mesh for CFD</a>
+                            <a href="/airfoil" className="c-cta__button">Airfoil Optimization</a>
+                            <a href="/thrust" className="c-cta__button">Propeller Thrust & Take-Off Analysis</a>
+                            <a href="/battery" className="c-cta__button">Battery Calculator</a>
+                            <a href="/mesh" className="c-cta__button">Airfoil Mesh for CFD</a>
                         </div>
                     </div>
                     <div className="c-container">
@@ -138,30 +126,7 @@ function Index(){
                     </div>
                 </div>
             </section>
-            <footer className="c-footer">
-                <div className="c-container">
-                    <div className="c-footer__content">
-                        <img src={logo} alt="" className="c-footer__logo"/>
-                        <div id="sfcynatkwjbfu5ldgzn3kmf1z2pnspyf2qh"></div>
-                        <img src="https://s05.flagcounter.com/count/inGx/bg_000000/txt_FFFFFF/border_000000/columns_2/maxflags_10/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0" width="150" height="65"/>
-                            
-                        <div className="c-footer__social">
-                            <ul className="c-footer__links">
-                                <li className="c-footer__link">
-                                    <a href="https://www.linkedin.com/company/aeroptimal"> <span className="c-footer__icon c-footer__icon--linkedin"></span></a>
-                                </li>
-                                <li className="c-footer__link">
-                                    <a href="https://www.youtube.com/channel/UCZlhbjTm0xnSr5RAugOos5g"><span className="c-footer__icon c-footer__icon--youtube"></span></a>
-                                </li>
-                                <li className="c-footer__link">
-                                    <a href="https://instagram.com/"> <span className="c-footer__icon c-footer__icon--instagram"></span></a>
-                                </li>
-                            </ul>
-                            <p className="c-footer__copy">© 2021 AerOptimal, All Rights Reserved.</p>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+            <Footer/>
         </div>
     )
 }
