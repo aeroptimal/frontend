@@ -766,6 +766,7 @@ ul {
   -webkit-transition: ease-in-out 0.5s;
   transition: ease-in-out 0.5s;
   margin-top: 30px;
+  margin-right: 40px;
   text-decoration: none;
   font-family: "Space Grotesk", sans-serif;
   font-size: 20px;
@@ -791,6 +792,7 @@ ul {
 
 .c-mesh_title{
   display: flex;
+  flex-wrap: wrap;
   display: -webkit-box;
   display: -ms-flexbox;
   -webkit-box-pack: center;
@@ -832,7 +834,20 @@ ul {
           justify-content: center;
 }
 
+@media screen and (max-width: 500px) {
+  .c-mesh__mask{
+    width: 100%;
+  }
+
+  .c-mesh__content{
+    width: 100%;
+  }
+}
+
 .c-input {
+  width: 30%;
+  margin-top: 50px;
+  padding: 10px 0 30px 30px;
   display: -webkit-box;
   display: -ms-flexbox;
   -webkit-box-pack: center;
@@ -844,5 +859,39 @@ ul {
   background-size: cover;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  padding: 80px 0;
+}
+
+.c-output {
+  width: 60%;
+  margin-top: 50px;
+  padding: 10px 30px 30px 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+@media screen and (max-width: 500px) {
+  .c-input {
+    width: 100%;
+  }
+  .c-output {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+input{
+  width: 80%;
+  padding: 12px 20px;
+  margin: 0 0 20px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.c-spacing {
+  width: 5px;
 }
