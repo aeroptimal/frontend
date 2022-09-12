@@ -3,8 +3,64 @@ import arrow from './static/img/arrow-article.png'
 import Header from '../components/header.jsx'
 import Footer from '../components/footer.jsx'
 
-function Index(){
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { scroller as scroll } from "react-scroll";
+import { ToastContainer, toast } from 'react-toastify';
 
+const useScrollToTop = () => {
+    const location = useLocation();
+    useEffect(() => {
+        if(location.hash === '#activated'){
+            toast.success('Check your email and activate your account',{
+                position:'top-center',
+                autoClose: false,
+            })
+        }else if(location.hash === '#changes'){
+            toast.success('Your changes were updated',{
+                position:'top-center',
+                autoClose: false,
+            })
+        }else if(location.hash === '#reset'){
+            toast.success('Check your email and reset your password',{
+                position:'top-center',
+                autoClose: false,
+            })
+        }else if(location.hash === '#contact'){
+            toast.success("We'll contact you as soon as possible",{
+                position:'top-center',
+                autoClose: false,
+            })
+        }else if(location.hash === '#active'){
+            toast.success("Activated",{
+                position:'top-center',
+                autoClose: false,
+            })
+        }else if(location.hash === '#notactive'){
+            toast.error("Something is wrong, please try again",{
+                position:'top-center',
+                autoClose: false,
+            })
+        }else{
+            scroll.scrollTo(location.hash.substring(1),{smooth: true});
+        }
+    }, [location]);
+};
+
+function Index(){
+    useScrollToTop()
+
+    const [articles, setarticles] = useState([])
+    const [news, setnews] = useState([])
+
+    useEffect(() => {
+        fetch(`${process.env.REACT_APP_BACKEND_HOST}/news`)
+        .then(response => response.json())
+        .then(response => {
+            setarticles(response.articles)
+            setnews(response.news)
+        })
+    },[])
     return(
         <div>
             <Header/>
@@ -75,30 +131,31 @@ function Index(){
                             <div className="c-publications__content">
                                 <div className="c-publications__main">
                                     <ul className="c-publications__articles"/>
-                                        {/* {% for article in articles %} */}
-                                        <li className="c-publications__article">
-                                            <small className="c-publications__date">03/09/2022</small>
-                                            <div className="c-publications__desc">
-                                                <p className="c-publications__text">Aircraft Propeller Design through Constrained Aero-Structural Particle Swarm OptimizationAircraft Propeller Design through Constrained Aero-Structural Particle Swarm Optimization</p>
-                                                <a href="https://google.com">
-                                                    <img src={arrow} alt=""/>
-                                                </a>
-                                            </div>
-                                        </li>
-                                        {/* {% endfor %}  */}
+                                        {articles.map(article => (
+                                            <li key={article.title} className="c-publications__article">
+                                                <small className="c-publications__date">{article.date}</small>
+                                                <div className="c-publications__desc">
+                                                    <p className="c-publications__text">{article.title}</p>
+                                                    <a href={article.link}>
+                                                        <img src={arrow} alt=""/>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                        ))}                                           
                                 </div>
                                 <div className="c-publications__sidebar">
                                     <h2 className="c-publications__subtitle">News</h2>
                                     <ul className="c-publications__news">
-                                        {/* {% for new in news%} */}
-                                        <li className="c-publications__article--news">
-                                            <small className="c-publications__date">08/23/2022</small>
-                                            <div className="c-publications__desc--news">
-                                                <p className="c-publications__text">Enjoy the airfoil generation automatic mesh for free</p>
-                                                <p className="c-publications__text--news"></p>
-                                            </div>
-                                        </li>
-                                        {/* {% endfor %} */}
+                                        {news.map(page_news => (
+                                            <li className="c-publications__article--news">
+                                                <small className="c-publications__date">{page_news.date}</small>
+                                                <div className="c-publications__desc--news">
+                                                    <p className="c-publications__text">{page_news.title}</p>
+                                                    <p className="c-publications__text--news">{page_news.description}</p>
+                                                </div>
+                                            </li>
+                                        ))}
+                                        
                                     </ul>
                                 </div>
                             </div>
@@ -127,6 +184,7 @@ function Index(){
                 </div>
             </section>
             <Footer/>
+            <ToastContainer/>
         </div>
     )
 }

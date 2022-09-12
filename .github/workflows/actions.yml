@@ -36,7 +36,5 @@ jobs:
           host: ec2-3-83-161-204.compute-1.amazonaws.com
           username: ubuntu
           key: ${{ secrets.SSH_KEY }}
-          # rm: true
-          # port: 22 //puedes especificar el puerto si es necesario para tu servidor
           source: "build/"
           target: "/react"
