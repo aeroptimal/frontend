@@ -2,6 +2,7 @@ import Index from './components/index.jsx'
 import Mesh from './components/mesh.jsx'
 import Airfoil from './components/airfoil.jsx'
 import Battery from './components/battery.jsx'
+import Thrust from './components/thrust.jsx'
 import Login from './components/login.jsx'
 import User from './components/user.jsx'
 import Reset from './components/reset.jsx'
@@ -18,6 +19,7 @@ function App() {
         <Route path="/mesh" element={<Mesh/>}/>
         <Route path="/airfoil" element={<Airfoil/>}/>
         <Route path="/battery" element={<Battery/>}/>
+        <Route path="/thrust" element={<Thrust/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/user" element={<User/>}/>
         <Route path="/reset" element={<Reset/>}/>

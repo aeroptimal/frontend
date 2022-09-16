@@ -1,5 +1,6 @@
 import Header from '../components/header.jsx'
 import Footer from '../components/footer.jsx'
+import info from '../components/static/img/info.png'
 
 import './static/css/index.css'
 
@@ -140,6 +141,8 @@ function Mesh(){
     }
 
     const calculatemesh = () => {
+        setloading(true);
+        setenablebutton(false);
         const data = {
             file: selectedFiles,
             DomainHeight:parseFloat(DH),
@@ -159,8 +162,6 @@ function Mesh(){
             .then(response => response.json())
             .then(data => {
                 if(!data.error){
-                    setloading(true);
-                    setenablebutton(false);
                     const client = socketIOClient(process.env.REACT_APP_BACKEND_HOST);
                     client.on('connect', () => {
                         console.log('Connected ' + data.id)
@@ -191,6 +192,8 @@ function Mesh(){
                         client.disconnect()   
                     });
                 }else{
+                    setloading(false);
+                    setenablebutton(true);
                     toast.error(data.error,{
                         position:'top-center',
                         autoClose: 10000,
@@ -199,6 +202,8 @@ function Mesh(){
                 }
             })
             .catch(_ => {
+                setloading(false);
+                setenablebutton(true);
                 toast.error('Please try again later',{
                     position:'top-center',
                     autoClose: 10000,
@@ -232,24 +237,27 @@ function Mesh(){
                     </div>
                 </div>
             </section>
+            <div className="video-container">
+                <iframe title="tutorial" src="https://www.youtube.com/embed/4Opu0zk7gFk"></iframe>
+            </div>
             <section>
                 <div className="c-split">
                     <div className="c-container" id="calculate">
                         <div className="c-input">
                             <h2 className="c-split__title">Airfoil Mesh for CFD</h2>
-                            <label htmlFor="DomainHeight" data-bs-toggle="tooltip" data-bs-placement="right" title="% of Chord Length (restricted to 10-30)"><strong>Domain Height</strong> <img alt="#" src="https://img.icons8.com/material-outlined/15/000000/info.png"/></label>
+                            <label htmlFor="DomainHeight"><strong>Domain Height</strong> <img alt="#" src={info}/><span className="tooltip">Type % of Chord Length (restricted to 10-30)</span></label>
                             <input className="input" type="number" id="DomainHeight" name="DomainHeight" step="0.0001" min="10" max="30" value={DH} onChange={(e) => {setDH(e.target.value)}}/>
 
-                            <label htmlFor="WakeLength" data-bs-toggle="tooltip" data-bs-placement="right" title="% of Chord Length (restricted to 10-30)"><strong>Wake Length</strong> <img alt="#" src="https://img.icons8.com/material-outlined/15/000000/info.png"/></label>
+                            <label htmlFor="WakeLength"><strong>Wake Length</strong> <img alt="#" src={info}/><span className="tooltip">Type in % of Chord Length (restricted to 10-30)</span></label>
                             <input className="input" type="number" id="WakeLength" name="WakeLength" step="0.0001" min="10" max="30" value={WL} onChange={(e) => {setWL(e.target.value)}}/>
 
-                            <label htmlFor="firstLayerHeight" data-bs-toggle="tooltip" data-bs-placement="right" title="% of Chord Length (restricted to 0.00001-0.0005)"><strong>First Layer Height</strong> <img alt="#" src="https://img.icons8.com/material-outlined/15/000000/info.png"/></label>
+                            <label htmlFor="firstLayerHeight"><strong>First Layer Height</strong> <img alt="#" src={info}/><span className="tooltip">Type in % of Chord Length (restricted to 0.00001-0.0005)</span></label>
                             <input className="input" type="number" id="firstLayerHeight" name="firstLayerHeight" step="0.000000001" min="0.00001" max="0.0005" value={FLH} onChange={(e) => {setFLH(e.target.value)}}/>
 
-                            <label htmlFor="growthRate" data-bs-toggle="tooltip" data-bs-placement="right" title="Typically 1.1-1.2 (restricted to 1.05-1.2)"><strong>Growth Rate </strong> <img alt="#" src="https://img.icons8.com/material-outlined/15/000000/info.png"/></label>
+                            <label htmlFor="growthRate"><strong>Growth Rate </strong> <img alt="#" src={info}/><span className="tooltip">Typically 1.1-1.2 (restricted to 1.05-1.2)</span></label>
                             <input className="input" type="number" id="growthRate" name="growthRate" step="0.0001" min="1.05" max="1.2" value={GR} onChange={(e) => {setGR(e.target.value)}}/>
 
-                            <label htmlFor="MaxCellSize" data-bs-toggle="tooltip" data-bs-placement="right" title="% of Chord Length (restricted to 0.4-0.8)"><strong>Max Cell Size</strong> <img alt="#" src="https://img.icons8.com/material-outlined/15/000000/info.png"/></label>
+                            <label htmlFor="MaxCellSize"><strong>Max Cell Size</strong> <img alt="#" src={info}/><span className="tooltip">Type in % of Chord Length (restricted to 0.4-0.8)</span></label>
                             <input className="input" type="number" id="MaxCellSize" name="MaxCellSize" step="0.0001" min="0.4" max="0.8" value={MCZ} onChange={(e) => {setMCZ(e.target.value)}}/>
                             {enablebutton ?
                             <button className="c-module__button" onClick={calculatemesh}>Calculate</button>
@@ -257,16 +265,16 @@ function Mesh(){
                             <button className="c-module__button disabled" disabled>Calculate</button>
                             }
                             <h2 className="c-split__title">Calculate First Layer Height (optional)</h2>
-                            <label htmlFor="Velocity" data-bs-toggle="tooltip" data-bs-placement="right" title="Use values between 0.1 and 340 m/s"><strong>Velocity</strong> <img alt="#" src="https://img.icons8.com/material-outlined/15/000000/info.png"/></label>
+                            <label htmlFor="Velocity"><strong>Velocity</strong> <img alt="#" src={info}/><span className="tooltip">Use values between 0.1 and 340 m/s</span></label>
                             <input className="input" type="number" id="Velocity" name="Velocity" step="0.0001" min="10" max="30" value={V} onChange={(e) => {setV(e.target.value)}}/>
 
-                            <label htmlFor="Density" data-bs-toggle="tooltip" data-bs-placement="right" title="Use positive values"><strong>Density</strong> <img alt="#" src="https://img.icons8.com/material-outlined/15/000000/info.png"/></label>
+                            <label htmlFor="Density"><strong>Density</strong> <img alt="#" src={info}/><span className="tooltip">Use positive values</span></label>
                             <input className="input" type="number" id="Density" name="Density" step="0.0001" min="10" max="30" value={rho} onChange={(e) => {setrho(e.target.value)}}/>
 
-                            <label htmlFor="DynamicViscosity" data-bs-toggle="tooltip" data-bs-placement="right" title="Use positive values"><strong>Dynamic Viscosity</strong> <img alt="#" src="https://img.icons8.com/material-outlined/15/000000/info.png"/></label>
+                            <label htmlFor="DynamicViscosity"><strong>Dynamic Viscosity</strong> <img alt="#" src={info}/><span className="tooltip">Use positive values</span></label>
                             <input className="input" type="number" id="DynamicViscosity" name="DynamicViscosity" step="0.000000001" min="0.00001" max="0.0005" value={mu} onChange={(e) => {setmu(e.target.value)}}/>
 
-                            <label htmlFor="y+" data-bs-toggle="tooltip" data-bs-placement="right" title="Use positive values"><strong>y+ </strong> <img alt="#" src="https://img.icons8.com/material-outlined/15/000000/info.png"/></label>
+                            <label htmlFor="y+"><strong>y+ </strong> <img alt="#" src={info}/><span className="tooltip">Use positive values</span></label>
                             <input className="input" type="number" id="y+" name="y+" step="0.0001" min="1.05" max="1.2" value={yplus} onChange={(e) => {setyplus(e.target.value)}}/>
                             <button className="c-module__button" onClick={calculateYplus}>Calculate</button>
                         </div>

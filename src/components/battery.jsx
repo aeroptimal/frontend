@@ -1,5 +1,6 @@
 import Header from '../components/header.jsx'
 import Footer from '../components/footer.jsx'
+import info from '../components/static/img/info.png'
 
 import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
@@ -137,7 +138,7 @@ function Battery(){
 
                         {t === 6?
                         <div>
-                            <label htmlFor="k" data-bs-toggle="tooltip" data-bs-placement="right" title="Peuker constant, use values between 1 and 1.4"><strong>K Value</strong> <img alt="#" src="https://img.icons8.com/material-outlined/15/000000/info.png"/></label>
+                            <label htmlFor="k"><strong>K Value</strong> <img alt="#" src={info}/><span className="tooltip">Peuker constant, use values between 1 and 1.4</span></label>
                             <input className="input" type="number" id="k" name="k" min="1" max="1.4" step="0.01" value={k} onChange={(e) => {setk(e.target.value)}}/>
                         </div>
                         :
@@ -149,14 +150,14 @@ function Battery(){
                             <input className="input-picker" type="radio" id="cus" name="type" value="cus" checked={!type} onChange={() => {settype(false)}}/>
                             <label htmlFor="cus">Custom value</label>
                         </div>
-                        <label htmlFor="h" data-bs-toggle="tooltip" data-bs-placement="right" title="Use positive values"><strong>H Value</strong> <img alt="#" src="https://img.icons8.com/material-outlined/15/000000/info.png"/></label>
+                        <label htmlFor="h"><strong>H Value</strong> <img alt="#" src={info}/><span className="tooltip">Use positive values</span></label>
                         <input className="input" type="number" id="h" name="h" step="0.01" min="0" disabled={type} value={h} onChange={(e) => {seth(e.target.value)}}/>
                         
                         {p === 1?
                         null
                         :
                         <div>
-                            <label htmlFor="T" data-bs-toggle="tooltip" data-bs-placement="right" title="Use positive values"><strong>Time [hours]</strong> <img alt="#" src="https://img.icons8.com/material-outlined/15/000000/info.png"/></label>
+                            <label htmlFor="T"><strong>Time [hours]</strong> <img alt="#" src={info}/><span className="tooltip">Use positive values</span></label>
                             <input className="input" type="number" id="T" name="T" step="0.01" min="0" value={time} onChange={(e) => {settime(e.target.value)}}/>
                         </div>    
                         }
@@ -165,7 +166,7 @@ function Battery(){
                         null
                         :
                         <div>
-                            <label htmlFor="I" data-bs-toggle="tooltip" data-bs-placement="right" title="Use positive values"><strong>Current [A]</strong> <img alt="#" src="https://img.icons8.com/material-outlined/15/000000/info.png"/></label>
+                            <label htmlFor="I"><strong>Current [A]</strong> <img alt="#" src={info}/><span className="tooltip">Use positive values</span></label>
                             <input className="input" type="number" id="I" name="I" step="0.01" min="0" value={current} onChange={(e) => {setcurrent(e.target.value)}}/>
                         </div>    
                         }
@@ -174,7 +175,7 @@ function Battery(){
                         null
                         :
                         <div>
-                            <label htmlFor="C" data-bs-toggle="tooltip" data-bs-placement="right" title="Use positive values"><strong>Nominal Capacity [Ah]</strong> <img alt="#" src="https://img.icons8.com/material-outlined/15/000000/info.png"/></label>
+                            <label htmlFor="C"><strong>Nominal Capacity [Ah]</strong> <img alt="#" src={info}/><span className="tooltip">Use positive values</span></label>
                             <input className="input" type="number" id="C" name="C" step="0.01" min="0" value={capacity} onChange={(e) => {setcapacity(e.target.value)}}/>
                         </div>    
                         }

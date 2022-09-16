@@ -1069,3 +1069,47 @@ table, td, th {
   top: 50%;
   transform: translate(-50%, -50%);
 }
+
+.tooltip{
+  display:none;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  margin-left: 10px;
+  position: absolute;
+  transform: translateY(-15px);
+  z-index: 10;
+  text-align: center;
+}
+
+label:hover .tooltip{
+  display:inline-block;
+}
+
+.video-container {
+  position: relative;
+  overflow: hidden;
+  width: 50%;
+  padding-bottom: 28.125%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+  margin: auto;
+  margin-top: 130px;
+}
+
+/* Then style the iframe to fit in the container div with full height and width */
+iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 500px) {
+  .video-container {
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+  }
+}

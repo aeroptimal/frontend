@@ -1,5 +1,6 @@
 import Header from '../components/header.jsx'
 import Footer from '../components/footer.jsx'
+import info from '../components/static/img/info.png'
 
 import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
@@ -121,9 +122,9 @@ function Airfoil(){
                     <div className="c-container" id="calculate">
                         <div className="c-input">
                             <h2 className="c-split__title">Airfoil Calculator</h2>
-                            <label htmlFor="cl" data-bs-toggle="tooltip" data-bs-placement="right" title="Use values between 0.2 and 1.8"><strong>Lift Coefficient</strong> <img alt="#" src="https://img.icons8.com/material-outlined/15/000000/info.png"/></label>
+                            <label htmlFor="cl" ><strong>Lift Coefficient</strong> <img alt="#" src={info}/><span className="tooltip">Use values between 0.2 and 1.8</span></label>
                             <input className="input" type="number" id="cl" name="cl" step="0.01" min="0.2" max="1.8" value={cl} onChange={(e) => {setcl(e.target.value)}}/>
-                            <label htmlFor="re" data-bs-toggle="tooltip" data-bs-placement="right" title="Use values between 80000 and 500000"><strong>Reynolds Number</strong> <img alt="#" src="https://img.icons8.com/material-outlined/15/000000/info.png"/></label>
+                            <label htmlFor="re" ><strong>Reynolds Number</strong> <img alt="#" src={info}/><span className="tooltip">Use values between 80000 and 500000</span></label>
                             <input className="input" type="number" id="re" name="re" step="4" min="80000" max="500000" value={re} onChange={(e) => {setre(e.target.value)}}/>
                             <label ><strong>Select your Methodology</strong></label>
                             <div className="radio">
@@ -132,8 +133,8 @@ function Airfoil(){
                                 <input className="input-picker" type="radio" id="cfd" name="xf" value="CSS" onChange={() => {setxf(2)}} checked={xf === 2 ? true : false}/>
                                 <label htmlFor="cfd">CFD</label>
                             </div>
-                            <label htmlFor="re" data-bs-toggle="tooltip" data-bs-placement="right" title="Use values between 50 and 500"><strong>Number of points</strong> <img alt="#" src="https://img.icons8.com/material-outlined/15/000000/info.png"/></label>
-                            <input className="input" type="number" id="re" name="re" step="1" min="50" max="500" value={n} onChange={(e) => {setn(e.target.value)}}/>
+                            <label htmlFor="n"><strong>Number of points</strong> <img alt="#" src={info}/><span className="tooltip">Use values between 50 and 500</span></label>
+                            <input className="input" type="number" id="n" name="n" step="1" min="50" max="500" value={n} onChange={(e) => {setn(e.target.value)}}/>
                             
                             {submit?
                             <button className="c-module__button" onClick={calculate}>Calculate</button>
