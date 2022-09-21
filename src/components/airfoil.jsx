@@ -122,9 +122,9 @@ function Airfoil(){
                     <div className="c-container" id="calculate">
                         <div className="c-input">
                             <h2 className="c-split__title">Airfoil Calculator</h2>
-                            <label htmlFor="cl" ><strong>Lift Coefficient</strong> <img alt="#" src={info}/><span className="tooltip">Use values between 0.2 and 1.8</span></label>
+                            <label htmlFor="cl" ><strong>Lift Coefficient</strong><img alt="#" className="tooltip-img" src={info}/><span className="tooltip">Use values between 0.2 and 1.8</span></label>
                             <input className="input" type="number" id="cl" name="cl" step="0.01" min="0.2" max="1.8" value={cl} onChange={(e) => {setcl(e.target.value)}}/>
-                            <label htmlFor="re" ><strong>Reynolds Number</strong> <img alt="#" src={info}/><span className="tooltip">Use values between 80000 and 500000</span></label>
+                            <label htmlFor="re" ><strong>Reynolds Number</strong><img alt="#" className="tooltip-img" src={info}/><span className="tooltip">Use values between 80000 and 500000</span></label>
                             <input className="input" type="number" id="re" name="re" step="4" min="80000" max="500000" value={re} onChange={(e) => {setre(e.target.value)}}/>
                             <label ><strong>Select your Methodology</strong></label>
                             <div className="radio">
@@ -133,7 +133,7 @@ function Airfoil(){
                                 <input className="input-picker" type="radio" id="cfd" name="xf" value="CSS" onChange={() => {setxf(2)}} checked={xf === 2 ? true : false}/>
                                 <label htmlFor="cfd">CFD</label>
                             </div>
-                            <label htmlFor="n"><strong>Number of points</strong> <img alt="#" src={info}/><span className="tooltip">Use values between 50 and 500</span></label>
+                            <label htmlFor="n"><strong>Number of points</strong><img alt="#" className="tooltip-img" src={info}/><span className="tooltip">Use values between 50 and 500</span></label>
                             <input className="input" type="number" id="n" name="n" step="1" min="50" max="500" value={n} onChange={(e) => {setn(e.target.value)}}/>
                             
                             {submit?

@@ -789,6 +789,10 @@ ul {
   cursor: not-allowed;
 }
 
+.disabled-text {
+  opacity: .4;
+}
+
 .c-mesh_container{
   width: 80%;
 }
@@ -896,7 +900,9 @@ ul {
 
 .input-picker{
   padding: 12px 20px;
-  margin: 0 0 20px 0;
+  margin: 0 8px 20px 0;
+  height: 18px;
+	width: 18px;
 }
 
 .input-login{
@@ -1081,6 +1087,10 @@ table, td, th {
   transform: translateY(-15px);
   z-index: 10;
   text-align: center;
+}
+
+.tooltip-img{
+  margin-left: 8px;
 }
 
 label:hover .tooltip{
