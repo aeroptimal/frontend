@@ -68,7 +68,7 @@ function Mesh(){
     }
     
     const calculateYplus = () => {
-        fetch(`${process.env.REACT_APP_BACKEND_HOST}/mesh/yplus`,{
+        fetch(`${process.env.REACT_APP_BACKEND_HOST}/api/mesh/yplus`,{
             method: 'POST',
             body: JSON.stringify({
                 V: parseFloat(V),
@@ -152,7 +152,7 @@ function Mesh(){
             MaxCellSize: parseFloat(MCZ),
             id: id
         }
-        fetch(`${process.env.REACT_APP_BACKEND_HOST}/mesh`,{
+        fetch(`${process.env.REACT_APP_BACKEND_HOST}/api/mesh`,{
             method: 'POST',
             body: JSON.stringify(data),
             headers:{

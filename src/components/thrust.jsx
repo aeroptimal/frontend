@@ -59,7 +59,7 @@ function Thrust(){
             P:P,
             Own:Own,
         }
-        fetch(`${process.env.REACT_APP_BACKEND_HOST}/thrust`,{
+        fetch(`${process.env.REACT_APP_BACKEND_HOST}/api/thrust`,{
             method: 'POST',
             body: JSON.stringify(data),
             headers:{
@@ -120,7 +120,7 @@ function Thrust(){
             V0:X,
         }
         console.log(data)
-        fetch(`${process.env.REACT_APP_BACKEND_HOST}/takeoff`,{
+        fetch(`${process.env.REACT_APP_BACKEND_HOST}/api/takeoff`,{
             method: 'POST',
             body: JSON.stringify(data),
             headers:{

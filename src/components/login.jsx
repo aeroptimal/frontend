@@ -39,7 +39,7 @@ function Login(){
             email: email,
             password: password
         }
-        fetch(`${process.env.REACT_APP_BACKEND_HOST}/login`,{
+        fetch(`${process.env.REACT_APP_BACKEND_HOST}/api/login`,{
             method: 'POST',
             body: JSON.stringify(data),
             headers:{
@@ -81,7 +81,7 @@ function Login(){
             name: name,
             lastname: lastname
         }
-        fetch(`${process.env.REACT_APP_BACKEND_HOST}/register`,{
+        fetch(`${process.env.REACT_APP_BACKEND_HOST}/api/register`,{
             method: 'POST',
             body: JSON.stringify(data),
             headers:{
@@ -117,7 +117,7 @@ function Login(){
         const data = {
             email: resetemail,
         }
-        fetch(`${process.env.REACT_APP_BACKEND_HOST}/password/reset`,{
+        fetch(`${process.env.REACT_APP_BACKEND_HOST}/api/password/reset`,{
             method: 'POST',
             body: JSON.stringify(data),
             headers:{

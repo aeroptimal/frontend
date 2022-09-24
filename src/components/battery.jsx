@@ -53,7 +53,7 @@ function Battery(){
             k: k
         }
     
-        fetch(`${process.env.REACT_APP_BACKEND_HOST}/battery`,{
+        fetch(`${process.env.REACT_APP_BACKEND_HOST}/api/battery`,{
             method: 'POST',
             body: JSON.stringify(data),
             headers:{

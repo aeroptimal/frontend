@@ -18,7 +18,7 @@ function Reset(){
         const data = {
             password: password1
         }
-        fetch(`${process.env.REACT_APP_BACKEND_HOST}/password/restore`,{
+        fetch(`${process.env.REACT_APP_BACKEND_HOST}/api/password/restore`,{
             method: 'POST',
             body: JSON.stringify(data),
             headers:{

@@ -33,7 +33,7 @@ function Airfoil(){
             xf: parseInt(xf),
             n: parseInt(n)
         }
-        fetch(`${process.env.REACT_APP_BACKEND_HOST}/airfoil`,{
+        fetch(`${process.env.REACT_APP_BACKEND_HOST}/api/airfoil`,{
             method: 'POST',
             body: JSON.stringify(data),
             headers:{

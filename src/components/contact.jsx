@@ -23,7 +23,7 @@ function Contact(){
             email: email,
             request: request
         }
-        fetch(`${process.env.REACT_APP_BACKEND_HOST}/contact`,{
+        fetch(`${process.env.REACT_APP_BACKEND_HOST}/api/contact`,{
             method: 'POST',
             body: JSON.stringify(data),
             headers:{

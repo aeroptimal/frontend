@@ -6,7 +6,7 @@ function Activate(){
     useEffect(() => {
         const token = searchParams.get('id') ?? null;
         if(token){
-            fetch(`${process.env.REACT_APP_BACKEND_HOST}/activate`,{
+            fetch(`${process.env.REACT_APP_BACKEND_HOST}/api/activate`,{
                 method: 'POST',
                 headers:{
                     'Content-Type': 'application/json',

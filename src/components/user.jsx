@@ -33,7 +33,7 @@ function User(){
 
     useEffect(() => {
         setenabled(false)
-        fetch(`${process.env.REACT_APP_BACKEND_HOST}/user`,{
+        fetch(`${process.env.REACT_APP_BACKEND_HOST}/api/user`,{
             headers:{
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${sessionStorage.getItem('token')}`
@@ -70,7 +70,7 @@ function User(){
             password1: password1,
             password: password
         }
-        fetch(`${process.env.REACT_APP_BACKEND_HOST}/password`,{
+        fetch(`${process.env.REACT_APP_BACKEND_HOST}/api/password`,{
             method: 'POST',
             body: JSON.stringify(data),
             headers:{
@@ -109,7 +109,7 @@ function User(){
             lastname: lastname
         }
         setenabled(false)
-        fetch(`${process.env.REACT_APP_BACKEND_HOST}/update`,{
+        fetch(`${process.env.REACT_APP_BACKEND_HOST}/api/update`,{
             method: 'POST',
             body: JSON.stringify(data),
             headers:{

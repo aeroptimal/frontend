@@ -54,7 +54,7 @@ function Index(){
     const [news, setnews] = useState([])
 
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_BACKEND_HOST}/news`)
+        fetch(`${process.env.REACT_APP_BACKEND_HOST}/api/news`)
         .then(response => response.json())
         .then(response => {
             setarticles(response.articles)
@@ -70,7 +70,7 @@ function Index(){
                         <div className="c-hero__mask"></div>
                         <div className="c-hero__content">
                             <div className="c-hero__copy">
-                                <h1 className="c-hero__title">Check Out our <span>Latest Module</span></h1>
+                                <h1 className="c-hero__title">CheckOut our <span>Latest Module</span></h1>
                                 <a href="/mesh" className="c-hero__cta">Check out</a>
                                 <p>Upcoming modules:</p>
                                 <ul>
