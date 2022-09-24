@@ -26,7 +26,7 @@ jobs:
           context: .
           push: true
           build-args:
-            - HOST=https://aeroptimal.com/api
+            - HOST=http://localhost/api
           tags: andres64372/aeroptimal:latest
   deploy:
     needs: build
