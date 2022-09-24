@@ -34,6 +34,7 @@ jobs:
     steps:
       - name: Apply changes to server
         run: |
+          cd /home/ubuntu
           docker compose pull aeroptimal
           docker compose up --no-deps -d aeroptimal
           docker image prune -f
