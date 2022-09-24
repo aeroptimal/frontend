@@ -27,7 +27,7 @@ jobs:
     needs: build
     runs-on: self-hosted
     steps:
-      - name: Apply changes to server
+      - name: Deployment on instance
         run: |
           cd /home/ubuntu
           docker compose pull aeroptimal
