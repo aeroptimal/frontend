@@ -70,7 +70,7 @@ function Index(){
                         <div className="c-hero__mask"></div>
                         <div className="c-hero__content">
                             <div className="c-hero__copy">
-                                <h1 className="c-hero__title">CheckOut our <span>Latest Module</span></h1>
+                                <h1 className="c-hero__title">Check Out our <span>Latest Module</span></h1>
                                 <a href="/mesh" className="c-hero__cta">Check out</a>
                                 <p>Upcoming modules:</p>
                                 <ul>
