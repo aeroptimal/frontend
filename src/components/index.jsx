@@ -1,25 +1,69 @@
 import './static/css/index.css'
-import logo from './static/img/logo.png'
 import arrow from './static/img/arrow-article.png'
+import Header from '../components/header.jsx'
+import Footer from '../components/footer.jsx'
 
-import { Link } from "react-scroll";
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { scroller as scroll } from "react-scroll";
+import { ToastContainer, toast } from 'react-toastify';
+
+const useScrollToTop = () => {
+    const location = useLocation();
+    useEffect(() => {
+        if(location.hash === '#activated'){
+            toast.success('Check your email and activate your account',{
+                position:'top-center',
+                autoClose: false,
+            })
+        }else if(location.hash === '#changes'){
+            toast.success('Your changes were updated',{
+                position:'top-center',
+                autoClose: false,
+            })
+        }else if(location.hash === '#reset'){
+            toast.success('Check your email and reset your password',{
+                position:'top-center',
+                autoClose: false,
+            })
+        }else if(location.hash === '#contact'){
+            toast.success("We'll contact you as soon as possible",{
+                position:'top-center',
+                autoClose: false,
+            })
+        }else if(location.hash === '#active'){
+            toast.success("Activated",{
+                position:'top-center',
+                autoClose: false,
+            })
+        }else if(location.hash === '#notactive'){
+            toast.error("Something is wrong, please try again",{
+                position:'top-center',
+                autoClose: false,
+            })
+        }else{
+            scroll.scrollTo(location.hash.substring(1),{smooth: true});
+        }
+    }, [location]);
+};
 
 function Index(){
+    useScrollToTop()
+
+    const [articles, setarticles] = useState([])
+    const [news, setnews] = useState([])
+
+    useEffect(() => {
+        fetch(`${process.env.REACT_APP_BACKEND_HOST}/api/news`)
+        .then(response => response.json())
+        .then(response => {
+            setarticles(response.articles)
+            setnews(response.news)
+        })
+    },[])
     return(
         <div>
-            <header className="c-header">
-                <nav className="c-nav">
-                    <a href="/"><img className="c-logo" src={logo} alt="Logo"/></a>
-                    <ul className="c-nav__menu">
-                        <li className="c-nav__item"><Link>About Us</Link> </li>
-                        <li className="c-nav__item"><a href="/#services">Modules</a> </li>
-                        <li className="c-nav__item"><a href="/contact">Contact Us</a> </li>
-                        <li className="c-nav__item"><a href="/login#log">Log In</a> </li>
-                        <li className="c-nav__item"><a href="/login#reg">Sign-Up</a> </li>
-                    </ul>
-                </nav>
-            </header>
-
+            <Header/>
             <section>
                 <div className="c-hero">
                     <div className="c-hero__container">
@@ -39,7 +83,7 @@ function Index(){
                 </div>
             </section>
 
-            <section id="we">
+            <section id="about">
                 <div className="c-split">
                     <div className="c-container">
                         <div className="c-split__content">
@@ -62,15 +106,15 @@ function Index(){
                 </div>
             </section>
 
-            <section id="services">
+            <section id="modules">
                 <div className="c-cta">
                     <h3 className="c-cta__title">Modules</h3>
                     <div className="c-container">
                         <div className="c-cta__buttons">
-                            <a href="./airfoil" className="c-cta__button">Airfoil Optimization</a>
-                            <a href="./thrust" className="c-cta__button">Propeller Thrust & Take-Off Analysis</a>
-                            <a href="./battery" className="c-cta__button">Battery Calculator</a>
-                            <a href="./mesh" className="c-cta__button">Airfoil Mesh for CFD</a>
+                            <a href="/airfoil" className="c-cta__button">Airfoil Optimization</a>
+                            <a href="/thrust" className="c-cta__button">Propeller Thrust & Take-Off Analysis</a>
+                            <a href="/battery" className="c-cta__button">Battery Calculator</a>
+                            <a href="/mesh" className="c-cta__button">Airfoil Mesh for CFD</a>
                         </div>
                     </div>
                     <div className="c-container">
@@ -87,30 +131,31 @@ function Index(){
                             <div className="c-publications__content">
                                 <div className="c-publications__main">
                                     <ul className="c-publications__articles"/>
-                                        {/* {% for article in articles %} */}
-                                        <li className="c-publications__article">
-                                            <small className="c-publications__date">03/09/2022</small>
-                                            <div className="c-publications__desc">
-                                                <p className="c-publications__text">Aircraft Propeller Design through Constrained Aero-Structural Particle Swarm OptimizationAircraft Propeller Design through Constrained Aero-Structural Particle Swarm Optimization</p>
-                                                <a href="https://google.com">
-                                                    <img src={arrow} alt=""/>
-                                                </a>
-                                            </div>
-                                        </li>
-                                        {/* {% endfor %}  */}
+                                        {articles.map(article => (
+                                            <li key={article.title} className="c-publications__article">
+                                                <small className="c-publications__date">{article.date}</small>
+                                                <div className="c-publications__desc">
+                                                    <p className="c-publications__text">{article.title}</p>
+                                                    <a href={article.link}>
+                                                        <img src={arrow} alt=""/>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                        ))}                                           
                                 </div>
                                 <div className="c-publications__sidebar">
                                     <h2 className="c-publications__subtitle">News</h2>
                                     <ul className="c-publications__news">
-                                        {/* {% for new in news%} */}
-                                        <li className="c-publications__article--news">
-                                            <small className="c-publications__date">08/23/2022</small>
-                                            <div className="c-publications__desc--news">
-                                                <p className="c-publications__text">Enjoy the airfoil generation automatic mesh for free</p>
-                                                <p className="c-publications__text--news"></p>
-                                            </div>
-                                        </li>
-                                        {/* {% endfor %} */}
+                                        {news.map(page_news => (
+                                            <li className="c-publications__article--news">
+                                                <small className="c-publications__date">{page_news.date}</small>
+                                                <div className="c-publications__desc--news">
+                                                    <p className="c-publications__text">{page_news.title}</p>
+                                                    <p className="c-publications__text--news">{page_news.description}</p>
+                                                </div>
+                                            </li>
+                                        ))}
+                                        
                                     </ul>
                                 </div>
                             </div>
@@ -138,30 +183,8 @@ function Index(){
                     </div>
                 </div>
             </section>
-            <footer className="c-footer">
-                <div className="c-container">
-                    <div className="c-footer__content">
-                        <img src={logo} alt="" className="c-footer__logo"/>
-                        <div id="sfcynatkwjbfu5ldgzn3kmf1z2pnspyf2qh"></div>
-                        <img src="https://s05.flagcounter.com/count/inGx/bg_000000/txt_FFFFFF/border_000000/columns_2/maxflags_10/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0" width="150" height="65"/>
-                            
-                        <div className="c-footer__social">
-                            <ul className="c-footer__links">
-                                <li className="c-footer__link">
-                                    <a href="https://www.linkedin.com/company/aeroptimal"> <span className="c-footer__icon c-footer__icon--linkedin"></span></a>
-                                </li>
-                                <li className="c-footer__link">
-                                    <a href="https://www.youtube.com/channel/UCZlhbjTm0xnSr5RAugOos5g"><span className="c-footer__icon c-footer__icon--youtube"></span></a>
-                                </li>
-                                <li className="c-footer__link">
-                                    <a href="https://instagram.com/"> <span className="c-footer__icon c-footer__icon--instagram"></span></a>
-                                </li>
-                            </ul>
-                            <p className="c-footer__copy">© 2021 AerOptimal, All Rights Reserved.</p>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+            <Footer/>
+            <ToastContainer/>
         </div>
     )
 }

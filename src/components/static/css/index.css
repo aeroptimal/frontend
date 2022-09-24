@@ -1,8 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Space+Grotesk:wght@700&display=swap");
-body {
-  padding: 0;
-  margin: 0;
-  width: 100%;
+
+a{
+  scroll-behavior: smooth;
 }
 
 ul {
@@ -301,7 +300,6 @@ ul {
   font-family: "Space Grotesk", sans-serif;
   font-weight: 700;
   line-height: 52px;
-  max-width: 380px;
 }
 .c-split__title--white {
   color: white;
@@ -771,6 +769,7 @@ ul {
   -webkit-transition: ease-in-out 0.5s;
   transition: ease-in-out 0.5s;
   margin-top: 30px;
+  margin-right: 40px;
   text-decoration: none;
   font-family: "Space Grotesk", sans-serif;
   font-size: 20px;
@@ -788,4 +787,339 @@ ul {
   opacity: .4;
   pointer-events: none;
   cursor: not-allowed;
+}
+
+.disabled-text {
+  opacity: .4;
+}
+
+.c-mesh_container{
+  width: 80%;
+}
+
+.c-mesh_title{
+  display: flex;
+  flex-wrap: wrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media screen and (max-width: 500px) {
+  .c-mesh_container{
+    width: 100%;
+  }
+}
+
+.c-mesh__mask {
+  background-image: url(../img/Reflex.png);;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 50%;
+  -webkit-clip-path: polygon(0 0, 90% 0, 70% 98%, 0 100%);
+  clip-path: polygon(0 0, 90% 0, 70% 98%, 0 100%);
+}
+
+.c-mesh__content {
+  width: 50%;
+  max-width: 560px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media screen and (max-width: 500px) {
+  .c-mesh__mask{
+    width: 100%;
+  }
+
+  .c-mesh__content{
+    width: 100%;
+  }
+}
+
+.c-input {
+  width: 30%;
+  margin-top: 50px;
+  padding: 10px 0 30px 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-image: url(../img/ctabg.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.c-output {
+  width: 60%;
+  margin-top: 50px;
+  padding: 10px 30px 30px 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+@media screen and (max-width: 500px) {
+  .c-input {
+    width: 100%;
+  }
+  .c-output {
+    width: 90%;
+  }
+}
+
+.input{
+  width: 85%;
+  padding: 12px 20px;
+  margin: 0 0 20px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.input-picker{
+  padding: 12px 20px;
+  margin: 0 8px 20px 0;
+  height: 18px;
+	width: 18px;
+}
+
+.input-login{
+  width: 30%;
+  padding: 12px 20px;
+  margin: 0 0 20px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.c-spacing {
+  width: 5px;
+}
+
+.pointer{
+  cursor: pointer;
+}
+
+.chart {
+  margin-top: 20px;
+  width: 100%;
+}
+
+@media screen and (max-width: 500px) {
+  .chart {
+    width: 90%;
+  }
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.loading-spinner {
+  margin: 50px 0 50px 75px;
+  width: 50px;
+  height: 50px;
+  border: 10px solid #f3f3f3; /* Light grey */
+  border-top: 10px solid #383636; /* Black */
+  border-radius: 50%;
+  animation: spinner 1s linear infinite;
+}
+
+table{
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+tr:nth-child(even){
+  background-color: #f2f2f2;
+}
+
+tr:nth-hover{
+  background-color: #ddd;
+}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #5194AF;
+  color: white;
+}
+
+table, td, th {
+  border: 1px solid rgb(120, 120, 120);
+}
+
+.radio{
+  margin-top:10px;
+}
+
+.figure{
+  overflow:auto
+}
+
+.description {
+  /*background-color: green;*/
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.description:after {
+  content: " ..........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................."
+}
+
+.value {
+/*background-color: red;*/
+  flex-shrink: 0;
+}
+
+.signup-container{
+  width: 100%;
+}
+
+.flex{
+  display: inline-block;
+}
+
+.c-50{
+  width: 50%;
+  float: left;
+}
+
+@media screen and (max-width: 500px) {
+  .c-50 {
+    width: 100%;
+  }
+}
+
+.warning{
+  color: red;
+}
+
+.clickable{
+  cursor: pointer;
+}
+
+.c-33{
+  width: 33%;
+  float: left;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.image-round{
+  border-radius: 50%;
+  
+}
+
+@media screen and (max-width: 500px) {
+  .c-33 {
+    width: 100%;
+  }
+}
+
+@keyframes activate-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.spinner {
+  width: 100px;
+  height: 100px;
+  border: 10px solid #f3f3f3; /* Light grey */
+  border-top: 10px solid #383636; /* Black */
+  border-radius: 50%;
+  animation: activate-spinner 1s linear infinite;
+}
+
+.centered{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.tooltip{
+  display:none;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  margin-left: 10px;
+  position: absolute;
+  transform: translateY(-15px);
+  z-index: 10;
+  text-align: center;
+}
+
+.tooltip-img{
+  margin-left: 8px;
+}
+
+label:hover .tooltip{
+  display:inline-block;
+}
+
+.video-container {
+  position: relative;
+  overflow: hidden;
+  width: 50%;
+  padding-bottom: 28.125%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+  margin: auto;
+  margin-top: 130px;
+}
+
+/* Then style the iframe to fit in the container div with full height and width */
+iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 500px) {
+  .video-container {
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+  }
 }
