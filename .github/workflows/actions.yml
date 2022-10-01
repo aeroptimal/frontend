@@ -21,7 +21,7 @@ jobs:
           context: .
           push: true
           build-args: |
-            HOST=http://localhost/api
+            BACKEND_HOST=http://localhost/api
           tags: andres64372/aeroptimal:latest
   deploy:
     needs: build
@@ -32,4 +32,4 @@ jobs:
           cd /home/ubuntu
           docker compose pull aeroptimal
           docker compose up --no-deps -d aeroptimal
-          docker image prune -f
+          docker system prune -f
